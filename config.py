@@ -9,6 +9,11 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 # Base Project Directories
+PROJECT_NAME = "PhishGuard AI"
+FULL_PROJECT_TITLE = "Phishing Website Detection Using URL-Based Feature Extraction with Decision Tree and Random Forest Algorithms"
+TAGLINE = "Detect Phishing. Browse Safely."
+APPLICATION_TYPE = "Browser-based Web Application"
+
 PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "raw"

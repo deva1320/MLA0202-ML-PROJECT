@@ -33,14 +33,18 @@ Legend:
 
 ## Stage 5: Multi-Page Web Application
 - [x] Create cybersecurity dark theme styles (`assets/styles/main.css`)
-- [x] Implement Home / URL Scanner (`app.py`)
-- [x] Implement URL Feature Analysis page (`pages/1_URL_Feature_Analysis.py`)
-- [x] Implement Model Comparison page (`pages/2_Model_Comparison.py`)
-- [x] Implement About Project page (`pages/3_About_Project.py`)
+- [x] Implement Home page with URL input, dual classifier cards, final verdict, and PDF export (`app.py`)
+- [x] Implement URL Analysis page with 18-dim card grid and parsed RFC 3986 anatomy (`pages/1_URL_Analysis.py`)
+- [x] Implement Analysis Process page with 6-stage connected demonstration timeline (`pages/2_Analysis_Process.py`)
+- [x] Implement Model Comparison page with held-out metrics, confusion matrices, and RF feature importances (`pages/3_Model_Comparison.py`)
+- [x] Implement About Project page with concise visual cards and methodology flowchart (`pages/4_About_Project.py`)
+- [x] Implement formal PDF Security Intelligence Report export using `fpdf2` (`src/phishguard/services/report_generator.py`)
+- [x] Remove visible localhost address and dev info from sidebar
 
 ## Stage 6: Testing, Documentation & Handover
-- [x] Implement automated pytest suites (`tests/test_url_features.py`, `tests/test_validation.py`, `tests/test_training.py`, `tests/test_prediction.py`)
-- [x] Verify test suite execution (`pytest -v` -> 22/22 passed)
+- [x] Implement automated pytest suites (`tests/test_url_features.py`, `tests/test_validation.py`, `tests/test_training.py`, `tests/test_prediction.py`, `tests/test_report_generator.py`)
+- [x] Verify test suite execution (`pytest -v` -> 24/24 passed)
+- [x] Audit evaluation results: 312 benchmark URLs, 63 held-out test samples, realistic SSL distribution (DT: 96.83%, RF: 100.0%)
 - [x] Verify Streamlit app startup
 - [x] Write comprehensive `README.md`
 - [x] Commit clean release to Git

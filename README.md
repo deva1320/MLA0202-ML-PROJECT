@@ -94,34 +94,43 @@ flowchart TD
 
 ## 5. Measured Held-Out Test Evaluation Results
 
-Evaluated on 14 held-out test URLs (stratified 20% test split) via `scripts/evaluate_models.py`:
+Evaluated on **63 held-out test URLs** (stratified 20% test split across 312 total benchmark records) via `scripts/evaluate_models.py`:
 
 | Metric | Decision Tree (DT) | Random Forest (RF) |
 |---|---|---|
-| **Test Accuracy** | **100.0%** | **100.0%** |
-| **Macro Precision** | **1.0000** | **1.0000** |
-| **Macro Recall** | **1.0000** | **1.0000** |
-| **Macro F1-Score** | **1.0000** | **1.0000** |
-| **Legitimate Precision / Recall** | 1.0000 / 1.0000 | 1.0000 / 1.0000 |
-| **Phishing Precision / Recall** | 1.0000 / 1.0000 | 1.0000 / 1.0000 |
-| **Inference Latency** | 0.066 ms / sample | 2.281 ms / sample |
+| **Test Accuracy** | **96.83%** | **100.0%** |
+| **Macro Precision** | **0.9706** | **1.0000** |
+| **Macro Recall** | **0.9677** | **1.0000** |
+| **Macro F1-Score** | **0.9682** | **1.0000** |
+| **Legitimate Precision / Recall** | 1.0000 / 0.9355 | 1.0000 / 1.0000 |
+| **Phishing Precision / Recall** | 0.9412 / 1.0000 | 1.0000 / 1.0000 |
+| **Inference Latency** | 0.015 ms / sample | 0.770 ms / sample |
 
-**Top Features by Random Forest Gini Impurity:**
-1. `is_https`: 0.2761
-2. `has_suspicious_keyword`: 0.2247
-3. `url_length`: 0.1836
-4. `count_hyphens`: 0.0973
-5. `hostname_length`: 0.0675
+**Top 5 Features by Random Forest Gini Impurity:**
+1. `has_suspicious_keyword`: 0.2353
+2. `hostname_length`: 0.1931
+3. `url_length`: 0.1859
+4. `count_hyphens`: 0.1386
+5. `is_https`: 0.0838
+
+> **Evaluation Audit Note:** Both classifiers were evaluated on the identical held-out test set without target leakage. Phishing URLs include realistic proportions of HTTPS Let's Encrypt certificates (~61%), ensuring models evaluate true lexical and structural morphology rather than simplistic protocol shortcuts.
 
 ---
 
-## 6. Project Directory Layout
+## 6. Project Directory Layout & Navigation Sections
+
+The application features exactly **5 unified navigation sections**:
+1. **Home (`app.py`):** URL input, quick demo presets, visual summary, dual classifier cards, final verdict, PDF report export, and safety disclaimer.
+2. **URL Analysis (`pages/1_URL_Analysis.py`):** Responsive grid of 18 feature cards with restrained status badges and expandable RFC 3986 URL anatomy.
+3. **Analysis Process (`pages/2_Analysis_Process.py`):** Interactive 6-stage workflow timeline (Validation -> Parsing -> Features -> DT -> RF -> Final Verdict).
+4. **Model Comparison (`pages/3_Model_Comparison.py`):** Genuine held-out test metrics, confusion matrix heatmaps, and RF Gini importances.
+5. **About Project (`pages/4_About_Project.py`):** Concise visual documentation, problem statement, CART vs. RF theory, and scope boundaries.
 
 ```text
 PhishGuard-AI/
-├── app.py                              # Home / URL Scanner Dashboard
+├── app.py                              # Home Page (Scanner, Predictions, PDF Export)
 ├── config.py                           # Central configuration & schema definitions
-├── requirements.txt                    # Pinned dependencies
+├── requirements.txt                    # Pinned dependencies (including fpdf2)
 ├── README.md                           # Comprehensive documentation
 ├── IMPLEMENTATION_PLAN.md              # Engineering plan & methodology
 ├── TASKS.md                            # Verified development task tracking
@@ -130,26 +139,27 @@ PhishGuard-AI/
 ├── .gitignore                          # Git exclusions
 ├── .env.example                        # Environment variable template
 │
-├── pages/                              # Multi-page web interface
-│   ├── 1_URL_Feature_Analysis.py       # Detailed 18-dim feature breakdown & descriptions
-│   ├── 2_Model_Comparison.py           # Test metrics, confusion matrices & RF feature importances
-│   └── 3_About_Project.py              # Capstone documentation, formulas & algorithms
+├── pages/                              # Navigation sections
+│   ├── 1_URL_Analysis.py               # 18-dim feature cards & parsed URL anatomy
+│   ├── 2_Analysis_Process.py           # 6-stage connected demonstration timeline
+│   ├── 3_Model_Comparison.py           # Held-out metrics, confusion matrices & RF importances
+│   └── 4_About_Project.py              # Visual capstone documentation & theory
 │
 ├── src/phishguard/
-│   ├── data/                           # Dataset ingestion & train/test splitting
+│   ├── data/                           # Ingestion & stratified 80/20 splitting
 │   ├── features/                       # Canonical 18-dim URL feature extractor
 │   ├── models/                         # Pipelines, training, inference & evaluation
-│   ├── services/                       # End-to-end URL analysis coordinator
+│   ├── services/                       # URL analyzer & PDF report generator
 │   └── utils/                          # Input validation & UI styling helpers
 │
 ├── scripts/
 │   ├── check_environment.py            # Environment & dependency diagnostics
-│   ├── prepare_dataset.py              # Ingests dataset & extracts features
-│   ├── train_models.py                 # Trains Decision Tree and Random Forest
-│   └── evaluate_models.py              # Benchmarks models on held-out test split
+│   ├── prepare_dataset.py              # Ingests 312 URLs & caches 18-dim features
+│   ├── train_models.py                 # Fits Decision Tree and Random Forest
+│   └── evaluate_models.py              # Benchmarks on 63 held-out test samples
 │
 ├── data/
-│   ├── raw/urls.csv                    # Ground-truth labeled URLs
+│   ├── raw/urls.csv                    # 312 ground-truth labeled benchmark URLs
 │   └── processed/features_dataset.csv  # 18-dim feature dataset
 │
 ├── artifacts/
@@ -159,7 +169,7 @@ PhishGuard-AI/
 │   └── evaluation_results.json         # Held-out benchmark metrics
 │
 ├── assets/styles/main.css              # Cybersecurity dark theme
-└── tests/                              # Automated pytest suite (22 tests)
+└── tests/                              # Automated pytest suite (24 tests)
 ```
 
 ---

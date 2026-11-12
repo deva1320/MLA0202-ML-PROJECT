@@ -4,8 +4,10 @@ Coordinates validation, 18-dim feature extraction, dual model inference,
 and human-readable risk indicator synthesis.
 """
 
-from dataclasses import dataclass
+from datetime import datetime
+from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
+from urllib.parse import urlparse
 import numpy as np
 
 from config import FEATURE_CONFIG
@@ -36,6 +38,8 @@ class URLAnalysisReport:
     features_dict: Dict[str, float]
     risk_indicators: List[RiskIndicator]
     disclaimer: str
+    timestamp: datetime = field(default_factory=datetime.utcnow)
+    parsed_components: Dict[str, Any] = field(default_factory=dict)
 
 
 def evaluate_risk_indicators(features: Dict[str, float]) -> List[RiskIndicator]:
@@ -168,8 +172,24 @@ def analyze_url(
             prediction_result=None,
             features_dict={},
             risk_indicators=[],
-            disclaimer=disclaimer
+            disclaimer=disclaimer,
+            timestamp=datetime.utcnow(),
+            parsed_components={}
         )
+
+    # Parse structural URL anatomy safely without visiting
+    p = urlparse(norm_url)
+    parsed_comp = {
+        "scheme": p.scheme or "http",
+        "hostname": p.hostname or "",
+        "port": p.port if p.port else ("443" if p.scheme == "https" else "80"),
+        "has_explicit_port": (p.port is not None),
+        "path": p.path or "/",
+        "query": p.query,
+        "has_query": bool(p.query),
+        "fragment": p.fragment,
+        "has_fragment": bool(p.fragment)
+    }
 
     # Extract 18 Canonical Features
     feat_vec, feat_dict = extract_url_features(norm_url)
@@ -189,6 +209,8 @@ def analyze_url(
         prediction_result=pred_result,
         features_dict=feat_dict,
         risk_indicators=indicators,
-        disclaimer=disclaimer
+        disclaimer=disclaimer,
+        timestamp=datetime.utcnow(),
+        parsed_components=parsed_comp
     )
 

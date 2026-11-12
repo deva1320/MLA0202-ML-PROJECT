@@ -1,7 +1,7 @@
 {
   "project_title": "Phishing Website Detection Using URL-Based Feature Extraction with Decision Tree and Random Forest Algorithms",
-  "training_timestamp": "2026-11-12T15:07:39.422553",
-  "train_samples": 52,
+  "training_timestamp": "2026-11-12T16:18:06.026729",
+  "train_samples": 249,
   "feature_names": [
     "url_length",
     "hostname_length",
@@ -30,28 +30,44 @@
   "decision_tree": {
     "algorithm": "Decision Tree Classifier (CART)",
     "max_depth": 8,
-    "cv_accuracy_mean": 1.0,
-    "cv_accuracy_std": 0.0,
-    "fit_time_seconds": 0.0232,
+    "cv_accuracy_mean": 0.9558,
+    "cv_accuracy_std": 0.0149,
+    "fit_time_seconds": 0.0322,
     "feature_importances": [
       {
-        "feature": "is_https",
-        "importance": 1.0
+        "feature": "has_suspicious_keyword",
+        "importance": 0.7359
       },
       {
-        "feature": "has_unusual_port",
-        "importance": 0.0
+        "feature": "count_hyphens",
+        "importance": 0.1333
       },
       {
-        "feature": "count_question",
-        "importance": 0.0
+        "feature": "count_digits",
+        "importance": 0.0393
+      },
+      {
+        "feature": "url_length",
+        "importance": 0.0341
+      },
+      {
+        "feature": "is_shortener",
+        "importance": 0.0281
       },
       {
         "feature": "hostname_length",
-        "importance": 0.0
+        "importance": 0.0213
+      },
+      {
+        "feature": "is_https",
+        "importance": 0.0064
       },
       {
         "feature": "path_length",
+        "importance": 0.0017
+      },
+      {
+        "feature": "count_at",
         "importance": 0.0
       },
       {
@@ -63,19 +79,11 @@
         "importance": 0.0
       },
       {
-        "feature": "count_hyphens",
+        "feature": "has_unusual_port",
         "importance": 0.0
       },
       {
-        "feature": "count_at",
-        "importance": 0.0
-      },
-      {
-        "feature": "count_equal",
-        "importance": 0.0
-      },
-      {
-        "feature": "has_suspicious_keyword",
+        "feature": "count_question",
         "importance": 0.0
       },
       {
@@ -87,10 +95,6 @@
         "importance": 0.0
       },
       {
-        "feature": "count_digits",
-        "importance": 0.0
-      },
-      {
         "feature": "count_subdomains",
         "importance": 0.0
       },
@@ -99,11 +103,7 @@
         "importance": 0.0
       },
       {
-        "feature": "is_shortener",
-        "importance": 0.0
-      },
-      {
-        "feature": "url_length",
+        "feature": "count_equal",
         "importance": 0.0
       }
     ]
@@ -112,77 +112,77 @@
     "algorithm": "Random Forest Classifier (Ensemble)",
     "n_estimators": 150,
     "max_depth": 12,
-    "cv_accuracy_mean": 1.0,
-    "cv_accuracy_std": 0.0,
-    "fit_time_seconds": 1.3498,
+    "cv_accuracy_mean": 0.9959,
+    "cv_accuracy_std": 0.0082,
+    "fit_time_seconds": 3.6297,
     "feature_importances": [
       {
-        "feature": "is_https",
-        "importance": 0.2761
-      },
-      {
         "feature": "has_suspicious_keyword",
-        "importance": 0.2247
-      },
-      {
-        "feature": "url_length",
-        "importance": 0.1836
-      },
-      {
-        "feature": "count_hyphens",
-        "importance": 0.0973
+        "importance": 0.2353
       },
       {
         "feature": "hostname_length",
-        "importance": 0.0675
+        "importance": 0.1931
+      },
+      {
+        "feature": "url_length",
+        "importance": 0.1859
+      },
+      {
+        "feature": "count_hyphens",
+        "importance": 0.1386
+      },
+      {
+        "feature": "is_https",
+        "importance": 0.0838
       },
       {
         "feature": "count_subdomains",
-        "importance": 0.0365
-      },
-      {
-        "feature": "count_dots",
-        "importance": 0.0301
+        "importance": 0.0522
       },
       {
         "feature": "count_digits",
-        "importance": 0.0262
+        "importance": 0.028
       },
       {
         "feature": "path_length",
-        "importance": 0.0173
+        "importance": 0.0213
       },
       {
-        "feature": "query_length",
-        "importance": 0.0121
-      },
-      {
-        "feature": "count_equal",
-        "importance": 0.0102
-      },
-      {
-        "feature": "count_question",
-        "importance": 0.008
-      },
-      {
-        "feature": "is_ip_address",
-        "importance": 0.0067
+        "feature": "count_dots",
+        "importance": 0.021
       },
       {
         "feature": "is_shortener",
-        "importance": 0.0035
+        "importance": 0.0162
       },
       {
-        "feature": "has_unusual_port",
-        "importance": 0.0002
+        "feature": "is_ip_address",
+        "importance": 0.009
+      },
+      {
+        "feature": "query_length",
+        "importance": 0.0057
+      },
+      {
+        "feature": "count_equal",
+        "importance": 0.0041
       },
       {
         "feature": "count_at",
-        "importance": 0.0
+        "importance": 0.0021
+      },
+      {
+        "feature": "has_unusual_port",
+        "importance": 0.0021
+      },
+      {
+        "feature": "count_question",
+        "importance": 0.0014
       },
       {
         "feature": "count_ampersand",
-        "importance": 0.0
+        "importance": 0.0003
       },
       {
         "feature": "count_percent",

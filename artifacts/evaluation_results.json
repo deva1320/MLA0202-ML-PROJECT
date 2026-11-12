@@ -1,0 +1,94 @@
+{
+  "evaluation_timestamp": "2026-11-12T15:07:41.239760",
+  "test_samples_count": 14,
+  "recommended_model": "Random Forest Classifier (RF)",
+  "selection_reason": "Random Forest is the recommended primary model with 100.0% accuracy and 1.0000 Macro F1. Its multi-tree ensemble bagging reduces single-tree variance and demonstrates superior generalization across lexical edge cases.",
+  "decision_tree": {
+    "model_name": "Decision Tree Classifier (DT)",
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Legitimate": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 7
+      },
+      "Phishing": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 7
+      }
+    },
+    "confusion_matrix": [
+      [
+        7,
+        0
+      ],
+      [
+        0,
+        7
+      ]
+    ],
+    "confusion_matrix_normalized": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "inference_latency_ms_per_sample": 0.0658,
+    "test_samples_count": 14
+  },
+  "random_forest": {
+    "model_name": "Random Forest Classifier (RF)",
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "per_class": {
+      "Legitimate": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 7
+      },
+      "Phishing": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 7
+      }
+    },
+    "confusion_matrix": [
+      [
+        7,
+        0
+      ],
+      [
+        0,
+        7
+      ]
+    ],
+    "confusion_matrix_normalized": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "inference_latency_ms_per_sample": 2.2807,
+    "test_samples_count": 14
+  }
+}

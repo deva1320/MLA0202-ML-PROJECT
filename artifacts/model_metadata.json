@@ -1,0 +1,193 @@
+{
+  "project_title": "Phishing Website Detection Using URL-Based Feature Extraction with Decision Tree and Random Forest Algorithms",
+  "training_timestamp": "2026-11-12T15:07:39.422553",
+  "train_samples": 52,
+  "feature_names": [
+    "url_length",
+    "hostname_length",
+    "path_length",
+    "query_length",
+    "count_dots",
+    "count_hyphens",
+    "count_at",
+    "count_question",
+    "count_equal",
+    "count_ampersand",
+    "count_percent",
+    "count_digits",
+    "count_subdomains",
+    "is_ip_address",
+    "is_https",
+    "is_shortener",
+    "has_suspicious_keyword",
+    "has_unusual_port"
+  ],
+  "feature_count": 18,
+  "classes": [
+    "Legitimate",
+    "Phishing"
+  ],
+  "decision_tree": {
+    "algorithm": "Decision Tree Classifier (CART)",
+    "max_depth": 8,
+    "cv_accuracy_mean": 1.0,
+    "cv_accuracy_std": 0.0,
+    "fit_time_seconds": 0.0232,
+    "feature_importances": [
+      {
+        "feature": "is_https",
+        "importance": 1.0
+      },
+      {
+        "feature": "has_unusual_port",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_question",
+        "importance": 0.0
+      },
+      {
+        "feature": "hostname_length",
+        "importance": 0.0
+      },
+      {
+        "feature": "path_length",
+        "importance": 0.0
+      },
+      {
+        "feature": "query_length",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_dots",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_hyphens",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_at",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_equal",
+        "importance": 0.0
+      },
+      {
+        "feature": "has_suspicious_keyword",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_ampersand",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_percent",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_digits",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_subdomains",
+        "importance": 0.0
+      },
+      {
+        "feature": "is_ip_address",
+        "importance": 0.0
+      },
+      {
+        "feature": "is_shortener",
+        "importance": 0.0
+      },
+      {
+        "feature": "url_length",
+        "importance": 0.0
+      }
+    ]
+  },
+  "random_forest": {
+    "algorithm": "Random Forest Classifier (Ensemble)",
+    "n_estimators": 150,
+    "max_depth": 12,
+    "cv_accuracy_mean": 1.0,
+    "cv_accuracy_std": 0.0,
+    "fit_time_seconds": 1.3498,
+    "feature_importances": [
+      {
+        "feature": "is_https",
+        "importance": 0.2761
+      },
+      {
+        "feature": "has_suspicious_keyword",
+        "importance": 0.2247
+      },
+      {
+        "feature": "url_length",
+        "importance": 0.1836
+      },
+      {
+        "feature": "count_hyphens",
+        "importance": 0.0973
+      },
+      {
+        "feature": "hostname_length",
+        "importance": 0.0675
+      },
+      {
+        "feature": "count_subdomains",
+        "importance": 0.0365
+      },
+      {
+        "feature": "count_dots",
+        "importance": 0.0301
+      },
+      {
+        "feature": "count_digits",
+        "importance": 0.0262
+      },
+      {
+        "feature": "path_length",
+        "importance": 0.0173
+      },
+      {
+        "feature": "query_length",
+        "importance": 0.0121
+      },
+      {
+        "feature": "count_equal",
+        "importance": 0.0102
+      },
+      {
+        "feature": "count_question",
+        "importance": 0.008
+      },
+      {
+        "feature": "is_ip_address",
+        "importance": 0.0067
+      },
+      {
+        "feature": "is_shortener",
+        "importance": 0.0035
+      },
+      {
+        "feature": "has_unusual_port",
+        "importance": 0.0002
+      },
+      {
+        "feature": "count_at",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_ampersand",
+        "importance": 0.0
+      },
+      {
+        "feature": "count_percent",
+        "importance": 0.0
+      }
+    ]
+  }
+}

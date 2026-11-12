@@ -46,10 +46,10 @@ st.markdown(
             Phishing Website Detection Using URL-Based Feature Extraction with Decision Tree and Random Forest Algorithms
         </div>
         <div class="hero-subtitle">
-            An automated cybersecurity intelligence tool built for Fundamentals of Machine Learning.
+            A browser-based cybersecurity machine learning <strong>Web Application</strong> developed for Fundamentals of Machine Learning.
             Evaluates website URLs using 18 lexical and structural features without ever visiting, crawling,
-            or executing the destination webpage. Dual supervised classifiers (Decision Tree & Random Forest)
-            deliver instant, explainable risk assessments.
+            or executing the destination webpage. Dual supervised classifiers (Decision Tree &amp; Random Forest)
+            deliver instant, explainable risk assessments directly through your web browser.
         </div>
     </div>
     """,
@@ -262,3 +262,4 @@ if history:
         st.rerun()
 else:
     st.caption("No URLs scanned during this active session yet.")
+

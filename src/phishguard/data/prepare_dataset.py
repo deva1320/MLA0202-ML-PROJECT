@@ -197,3 +197,4 @@ def load_features_dataset(path: Optional[Path] = None) -> pd.DataFrame:
         return features_df
 
     return pd.read_csv(path)
+

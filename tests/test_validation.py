@@ -54,3 +54,4 @@ def test_url_with_port():
     is_valid, norm, err, warn = validate_and_normalize_url("http://example.com:8080/portal")
     assert is_valid is True
     assert norm == "http://example.com:8080/portal"
+

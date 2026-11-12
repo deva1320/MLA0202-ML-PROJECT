@@ -49,3 +49,4 @@ def test_end_to_end_analyze_url_phishing():
     feat_names = [ind.feature_name for ind in report.risk_indicators]
     assert "is_ip_address" in feat_names
     assert "has_suspicious_keyword" in feat_names
+

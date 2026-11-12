@@ -37,6 +37,11 @@ def render_sidebar():
             unsafe_allow_html=True
         )
         st.caption("Supervised ML: Decision Tree & Random Forest")
+        st.markdown(
+            "<div style='font-size:0.75rem; color:#38BDF8; font-weight:600; margin-top:2px; margin-bottom:8px;'>"
+            "🌐 Web Application | http://localhost:8501</div>",
+            unsafe_allow_html=True
+        )
         st.divider()
 
         # Model readiness
@@ -75,3 +80,4 @@ def render_sidebar():
             "No websites are crawled, fetched, or executed.</div>",
             unsafe_allow_html=True
         )
+

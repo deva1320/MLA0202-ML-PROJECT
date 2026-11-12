@@ -166,3 +166,4 @@ def load_model_artifacts() -> Tuple[Pipeline, Pipeline, Dict[str, Any]]:
         metadata = json.load(f)
 
     return dt_pipeline, rf_pipeline, metadata
+

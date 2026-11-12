@@ -191,3 +191,4 @@ def analyze_url(
         risk_indicators=indicators,
         disclaimer=disclaimer
     )
+

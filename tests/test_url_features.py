@@ -80,3 +80,4 @@ def test_url_with_unusual_port():
 
     _, feats_custom = extract_url_features("http://192.168.1.100:8888/login")
     assert feats_custom["has_unusual_port"] == 1.0
+

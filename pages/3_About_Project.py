@@ -56,8 +56,12 @@ with tab1:
                 <li><strong>Static Lexical Feature Engineering:</strong> Design and implement an 18-dimensional feature extractor that captures domain length, delimiter counts, subdomain depth, IP octets, and credential lures with 0 network calls.</li>
                 <li><strong>Supervised Machine Learning Comparison:</strong> Train, optimize, and fairly benchmark exactly two primary supervised classifiers: <strong>Decision Tree Classifier (DT)</strong> and <strong>Random Forest Classifier (RF)</strong>.</li>
                 <li><strong>Model Explainability:</strong> Provide transparent decision boundary insights via Decision Tree logic and Random Forest Gini feature importances.</li>
-                <li><strong>Interactive Cybersecurity Dashboard:</strong> Deliver a clean, responsive Streamlit interface providing instant predictions, risk factor breakdowns, and held-out test benchmarks.</li>
+                <li><strong>Interactive Cybersecurity Web Application:</strong> Deliver a clean, responsive browser-based interface using Streamlit, accessible via standard web browsers (Google Chrome, Microsoft Edge) at <code>http://localhost:8501</code>.</li>
             </ul>
+            <h4 style="color:#0EA5E9; margin-top:16px;">3. Web Application Deployment & Access</h4>
+            <p style="color:#94A3B8; font-size:0.95rem; line-height:1.6;">
+                PhishGuard AI is implemented strictly as a browser-based <strong>Web Application</strong> powered by Python, Streamlit, and Scikit-learn. Users interact with all project capabilities — real-time URL scanning, 18-dimensional lexical feature analysis, dual model inferences, and held-out benchmark evaluations — directly through standard web browsers without requiring any desktop executables, mobile frameworks, or client installations.
+            </p>
         </div>
         """,
         unsafe_allow_html=True
@@ -155,3 +159,4 @@ with tab4:
         """,
         unsafe_allow_html=True
     )
+

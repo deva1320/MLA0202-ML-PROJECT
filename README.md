@@ -18,6 +18,7 @@ The system analyzes submitted URLs, extracts an 18-dimensional feature vector, a
 2. **Random Forest Classifier (RF)**
 
 ### Core Engineering & Security Principles
+- **Strictly Browser-Based Web Application:** Built entirely in Python using Streamlit and Scikit-learn. Users interact with the URL scanner, feature breakdowns, dual-model predictions, and comparison dashboards exclusively through web browsers (such as Google Chrome or Microsoft Edge) at `http://localhost:8501`. No mobile apps (Android/iOS), desktop executables, Flutter, React Native, or Electron are used.
 - **Zero Network Traffic:** The application **never connects to, crawls, downloads, renders, or executes** the submitted URL.
 - **Explainable Machine Learning:** Alongside predictions, the app breaks down 18 structural indicators and explains why specific patterns (such as raw IP hosts, excessive subdomains, or userinfo `@` characters) correlate with phishing threats.
 - **Dual Model Transparency:** Both Decision Tree and Random Forest predictions and probability distributions are visible simultaneously.
@@ -204,10 +205,14 @@ python scripts/evaluate_models.py
 # 10. Run automated test suite
 python -m pytest -v
 
-# 11. Launch the web application
+# 11. Launch the web application locally
 streamlit run app.py
 ```
-The application will open automatically in your browser at `http://localhost:8501`.
+
+The Web Application will start locally and open automatically in your web browser (e.g., Google Chrome, Microsoft Edge, Mozilla Firefox) at:
+**`http://localhost:8501`**
+
+All interactions—submitting URLs, viewing real-time 18-dimensional feature breakdowns, inspecting dual classifier probabilities (Decision Tree vs. Random Forest), comparing confusion matrices, and reading algorithm documentation—occur entirely within your web browser.
 
 ---
 
@@ -228,3 +233,4 @@ The application will open automatically in your browser at `http://localhost:850
 1. **Static Analysis Only:** Never makes external HTTP/DNS connections to submitted URLs.
 2. **Machine Learning Disclaimer:** Predictions are probabilistic estimates based on URL morphology, not guarantees of website authenticity.
 3. **Privacy First:** No submitted URLs or query parameters are logged permanently by default.
+

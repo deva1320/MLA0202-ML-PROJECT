@@ -37,3 +37,4 @@ def test_training_and_artifacts_loading():
     assert len(metadata["feature_names"]) == 18
     assert len(metadata["decision_tree"]["feature_importances"]) == 18
     assert len(metadata["random_forest"]["feature_importances"]) == 18
+

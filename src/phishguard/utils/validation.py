@@ -89,3 +89,4 @@ def validate_and_normalize_url(raw_input: str) -> Tuple[bool, str, str, str]:
 
     except Exception as e:
         return False, "", f"Malformed URL could not be parsed: {str(e)}", ""
+

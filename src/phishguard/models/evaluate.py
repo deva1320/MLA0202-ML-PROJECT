@@ -145,3 +145,4 @@ def load_evaluation_results() -> Optional[Dict[str, Any]]:
             return json.load(f)
     except Exception:
         return None
+

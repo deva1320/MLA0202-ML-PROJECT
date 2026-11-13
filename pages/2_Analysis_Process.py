@@ -6,6 +6,7 @@ Visual demonstration workflow showing the 6 connected stages of URL cybersecurit
 
 import sys
 from pathlib import Path
+import pandas as pd
 import streamlit as st
 
 # Add project root to sys.path
@@ -207,3 +208,4 @@ else:
             - **Model Confidence:** `{pred.final_confidence:.1%}`
             """
         )
+

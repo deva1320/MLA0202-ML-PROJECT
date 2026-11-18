@@ -41,6 +41,11 @@ htmlcov/
 *.swp
 *.swo
 
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+
 # Operating system
 Thumbs.db
 Desktop.ini

@@ -226,6 +226,16 @@ All interactions—submitting URLs, viewing real-time 18-dimensional feature bre
 
 ---
 
+### Cloud Deployment (Vercel Frontend + Render Backend)
+
+PhishGuard AI supports decoupled cloud deployment:
+* **Backend:** Deploy the FastAPI service to **Render** using `uvicorn backend.main:app --host 0.0.0.0 --port $PORT` (configured via [render.yaml](file:///c:/Users/DEVA%20CHARY/OneDrive/Desktop/ML%20Project/PhishGuard-AI/render.yaml)).
+* **Frontend:** Deploy the React + Vite dashboard in `frontend/` to **Vercel** with the environment variable `VITE_API_URL=https://<your-render-url>.onrender.com`.
+
+See the complete step-by-step guide in [DEPLOYMENT.md](file:///c:/Users/DEVA%20CHARY/OneDrive/Desktop/ML%20Project/PhishGuard-AI/DEPLOYMENT.md).
+
+---
+
 ## 8. Faculty Presentation Summary (2–3 Minutes)
 
 > *"Good morning, faculty. Today I present **PhishGuard AI**, a machine learning cybersecurity web application developed for **Fundamentals of Machine Learning**.*
